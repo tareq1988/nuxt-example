@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        example - 2
+        example - 3
       </h1>
       <h2 class="subtitle">
-        My impressive Nuxt 2 project
+        My impressive Nuxt 3 project
       </h2>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">

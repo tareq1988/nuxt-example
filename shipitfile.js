@@ -13,13 +13,14 @@ module.exports = shipit => {
     }
   })
 
-  shipit.on('deploy:update', () => {
+  shipit.on('deployed', () => {
     const processName = 'awesome-app'
 
     let cmd = ''
     cmd += `cd ${shipit.releasePath} && `
     cmd += 'npm install && '
     cmd += 'npm run build && '
+    cmd += `cd ${shipit.currentPath} && `
     cmd += `(
         pm2 restart ${processName} ||
         pm2 start npm --name ${processName} -- start

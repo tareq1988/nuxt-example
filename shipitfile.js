@@ -13,9 +13,8 @@ module.exports = shipit => {
     }
   })
 
-  shipit.on('deployed', () => {
+  shipit.on('deploy:update', () => {
     const processName = 'awesome-app'
-    const env = shipit.environment
 
     let cmd = ''
     cmd += `cd ${shipit.releasePath} && `
@@ -23,7 +22,7 @@ module.exports = shipit => {
     cmd += 'npm run build && '
     cmd += `(
         pm2 restart ${processName} ||
-        NODE_ENV=${env} pm2 start npm --name ${processName} -- start
+        pm2 start npm --name ${processName} -- start
     )`
 
     shipit.remote(cmd)
